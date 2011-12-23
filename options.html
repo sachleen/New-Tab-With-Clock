@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Options</title>
+    <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="options.js"></script>
+    <link rel="stylesheet" href="options.css" type="text/css" media="screen">
+</head>
+<body>
+
+<div id="wrap">
+    <div id="left">
+        <h1>Options</h1>
+        <ul id="nav">
+            <li id="main" class="selected">Main</li>
+            <li id="theme">Theme</li>
+            <li id="translations">Translations</li>
+            <li id="about">About</li>
+        </ul>
+    </div>
+    
+    <div id="right">
+        <div id="mainPage" class="page">
+            <h1>Main</h1>
+            <section>
+                <h3>Primary Clock</h3>
+                <div>
+                    <label>
+                        <input id="mainPrimary24hour" type="checkbox" />
+                        <span>24-hour clock</span>
+                    </label>
+                    <label>
+                        <input id="mainPrimaryShowDate" type="checkbox" />
+                        <span>Show date</span>
+                    </label>
+                    <div>Date Format: <br /><input type="text" class="textbox" id="mainPrimaryDateFormat"/><br />
+                    Acceptable format strings: <span title="Date">DD</span>, <span title="Day">DDDD</a>, <span title="Numeric month">MM</span>, <span title="Month Name">MMMM</span>, <span title="Numeric year">YYYY</span></div>
+                </div>
+            </section>
+            <section>
+                <h3>Secondary Clock</h3>
+                <div>
+                    <label>
+                        <input id="mainSecondaryEnable" type="checkbox" />
+                        <span>Enable secondary clock</span>
+                    </label>
+                    <label>
+                        <input id="mainSecondary24hour" type="checkbox" />
+                        <span>24-hour clock</span>
+                    </label>
+                    <label>
+                        <input id="mainSecondaryShowDate" type="checkbox" />
+                        <span>Show date</span>
+                    </label>
+                    <div>Timezone:<br />
+                        <select name="mainSecondaryTimezone" id="mainSecondaryTimezone">
+                            <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+                            <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+                            <option value="-10.0">(GMT -10:00) Hawaii</option>
+                            <option value="-9.0">(GMT -9:00) Alaska</option>
+                            <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                            <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                            <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                            <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                            <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                            <option value="-3.5">(GMT -3:30) Newfoundland</option>
+                            <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                            <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+                            <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+                            <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                            <option value="+1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+                            <option value="+2.0">(GMT +2:00) Kaliningrad, South Africa</option>
+                            <option value="+3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                            <option value="+3.5">(GMT +3:30) Tehran</option>
+                            <option value="+4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                            <option value="+4.5">(GMT +4:30) Kabul</option>
+                            <option value="+5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                            <option value="+5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                            <option value="+5.75">(GMT +5:45) Kathmandu</option>
+                            <option value="+6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                            <option value="+7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                            <option value="+8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                            <option value="+9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                            <option value="+9.5">(GMT +9:30) Adelaide, Darwin</option>
+                            <option value="+10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                            <option value="+11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                            <option value="+12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                        </select><br />
+                        Secondary clock uses the same date format.
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Bookmarks</h3>
+                <div>
+                    <label>
+                        <input id="mainBookmarksEnable" type="checkbox" />
+                        <span>Enable bookmarks bar</span>
+                    </label>
+                    <label>
+                        <input id="mainBookmarksAutohide" type="checkbox" />
+                        <span>Autohide bookmarks bar after:</label> <input id="mainBookmarksAutohideTime" type="text" value="10" style="width:40px;" /> seconds of inactivity</span>
+                    
+                    <label>
+                        <input id="mainBookmarksHideText" type="checkbox" />
+                        <span>Hide bookmark text (Icons only)</span>
+                    </label>
+                </div>
+            </section>
+        </div>
+        <div id="themePage" class="page">
+            <h1>Theme</h1>
+            <section>
+                <h3>Custom Styles</h3>
+                <div>
+                    <label>
+                        <input id="themeEnableCSS" type="checkbox" />
+                        <span>Enable custom CSS</span>
+                    </label>
+                    <textarea id="themeStyle" rows="20"></textarea>
+                    <label style="clear: both;">
+                        <button class="bigButton" id="themeSave">Save Custom CSS</button>
+                    </label>
+                </div>
+            </section>
+            <section>
+                <h3>Custom Javascript</h3>
+                <div>
+                    <label>
+                        <input id="themeEnableJS" type="checkbox" />
+                        <span>Enable custom Javascript</span>
+                    </label>
+                    <textarea id="themeJS" rows="20"></textarea>
+                    <label style="clear: both;">
+                        <button class="bigButton" id="themeJSSave">Save Custom Javascript</button>
+                    </label>
+                </div>
+            </section>
+            <section>
+                <h3>Wallpaper</h3>
+                <div>
+                    <label>
+                        <input id="themeEnableWallpaper" type="checkbox" />
+                        <span>Enable custom wallpaper</span>
+                    </label>
+                    <p>To set a custom background image on the new tab page, navigate to the appropriate direcotry (listed below; make sure to change USERNAME to your user name) and find the extension's folder named <script>document.write ("<pre>" + chrome.extension.getURL("").substr(19,32) + "</pre>")</script>
+                    
+                    Replace the "wallpaper" file with any image if your choice. Please make suer to remove the extension of the image by renaming it. It should be named just "wallpaper", not "wallpaper.jpg"</p>
+                    
+                    <div style="width:400px; overflow-x:scroll;">
+                        <strong>Windows XP</strong>
+                        <pre>C:\Documents and Settings\USERNAME\Local Settings\Application Data\Google\Chrome\User Data\Default\Extensions</pre>
+                        <strong>Windows Vista</strong>
+                        <pre>C:\Users\USERNAME\AppData\Local\Google\Chrome\User Data\Default\Extensions</pre>
+                        <strong>Windows 7</strong>
+                        <pre>C:\Users\USERNAME\AppData\Local\Google\Chrome\User Data\Default\Extensions</pre>
+                        <strong>Mac OS X</strong>
+                        <pre>/Users/username/Library/Application Support/Google/Chrome/Default/Extensions</pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="translationsPage" class="page">
+            <h1>Translations</h1>
+            <section>
+                <h3>Page Title</h3>
+                <div>
+                    <label>
+                        <input id="translationsEnablePageTitle" type="checkbox" />
+                        <span>Enable custom page title</span>
+                    </label>
+                    <div>Page Title: <br /><input type="text" class="textbox" id="translationsPageTitle"/></div>
+                    <div>Any instance of <code>TTTT</code> will be replaced with the current time in <code>HH:MM</code> format</div>
+                </div>
+            </section>
+            <section>
+                <h3>Days</h3>
+                <div>
+                    <label>
+                        <input id="translationsEnableDays" type="checkbox" />
+                        <span>Enable custom text for days</span>
+                    </label>
+                    <textarea id="translationsDays" rows="5"></textarea>
+                    <div style="font-family:consolas; width:400px; overflow-x:scroll;">
+                        <strong>English:</strong><br />
+                        Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday<br />
+                        <strong>Spanish:</strong><br />
+                        domingo,lunes,martes,miércoles,jueves,viernes,sábado<br />
+                        <strong>German:</strong><br />
+                        Sonntag,Montag,Dienstag,Mittwoch,Donnerstag,Freitag,Samstag
+                    </div>
+                    <label>
+                        <button class="bigButton" id="translationsDaysSave">Save</button>
+                    </label>
+                </div>
+            </section>
+            <section>
+                <h3>Months</h3>
+                <div>
+                    <label>
+                        <input id="translationsEnableMonths" type="checkbox" />
+                        <span>Enable custom text for months</span>
+                    </label>
+                    <textarea id="translationsMonths" rows="5"></textarea>
+                    <div style="font-family:consolas; width:400px; overflow-x:scroll;">
+                        <strong>English:</strong><br />
+                        January,February,March,April,May,June,July,August,September,October,November,December
+                        <strong>Spanish:</strong><br />
+                        enero,febrero,marzo,abril,mayo,junio,julio,agosto,septiembre,octubre,noviembre,diciembre
+                        <strong>German:</strong><br />
+                        Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember
+                    </div>
+                    <label>
+                        <button class="bigButton" id="translationsMonthsSave">Save</button>
+                    </label>
+                </div>
+            </section>
+        </div>
+        <div id="aboutPage" class="page">
+            <h1>New Tab With Clock (<span id="extensionVersion"></span>)</h1>
+            <!--<section>
+                <h3>What's New</h3>
+                <div>
+                    <ul>
+                        <li>Added link to <a href="https://chrome.google.com/webstore">Web Store</a> in the Apps menu</li>
+						<li>Fixed bug where bookmarks bar hides after 1 second instead of 10.</li>
+                    </ul>
+                </div>
+            </section>-->
+            <section>
+                <h3>Features</h3>
+                <div>
+                    <ul>
+                        <li><strong>Completely rewritten</strong> The original extension was built off of <a href="https://chrome.google.com/extensions/detail/mhooaanggocejodelmhmblfdjlkmlbak?hl=en-us">New tab w/ clock and current project entry</a> by kalebnyq but it evolved into something much more than a simple clock. A rewrite has been long overdue to make it more efficient and easier to use.</li>
+                        <li><strong>More customizability</strong> Many more options to make it work the way you want. Translations feature allows you to customize all the text on the New Tab page. Pair this with custom CSS themes and you can turn it into anything you want.</li>
+                        <li><strong>New look</strong> The New Tab page has a much cleaner look and the Options page is completely redesigned.</li>
+                    </ul>
+                    <br />
+                    Check out all of the options on the left and don't forget to <a href="https://chrome.google.com/webstore/detail/feckadlaijbceoglkncdgebgkminbkia">rate and comment</a>!
+                </div>
+            </section>
+            <section>
+                <h3>Sachleen Sandhu</h3>
+                <div>
+                    <a href="http://sachleen.com/">sacheen.com</a><br />
+                    <a href="http://blog.sachleen.com/">blog</a><br />
+                    <a href="mailto:sachleen.sandhu@gmail.com">email</a>
+                </div>
+            </section>
+            <section>
+                <h3>Other Extensions</h3>
+                <div>
+                    <a href="https://chrome.google.com/webstore/detail/feckadlaijbceoglkncdgebgkminbkia">New Tab with Clock</a><br />
+                    <a href="https://chrome.google.com/webstore/detail/jannioklmfaoeockgpflgfalccnhogeb">NoteSpark Starred Notes Notifier</a><br />
+                    <a href="https://chrome.google.com/webstore/detail/jphfnnacagbhfelldlccmiocmdodnlio">Blocker</a><br />
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+<script>
+        /*$('.page').each(function(index) {
+            $(this).hide();
+        });
+        $("#themePage").show();*/
+</script>
+
+</body>
+</html>

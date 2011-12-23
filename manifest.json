@@ -1,0 +1,17 @@
+{
+  "name": "New Tab With Clock",
+  "version": "1.5.2",
+  "chrome_url_overrides": {
+    "newtab": "tab.html"
+  },
+  "icons": {
+    "128": "128.png"
+  },
+  "permissions": [
+    "bookmarks",
+    "tabs",
+    "chrome://favicon/",
+    "management"
+  ],
+  "options_page": "options.html"
+}

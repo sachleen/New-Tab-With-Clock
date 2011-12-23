@@ -1,0 +1,126 @@
+a, a:hover, a:visited { text-decoration: none; color: #000; }
+
+html {
+    height: 100%;
+}
+
+body {
+    height:100%;
+    margin: 0;
+    font-family: arial;
+    font-size: 12px;
+    background-color: #CCC;
+    background-attachment:fixed !important;
+    overflow:hidden;
+}
+
+.clock, .date, .secondaryClock, .secondaryDate, .clockTitle {
+    color: #888;
+    text-align: center;
+    font-weight: 600;
+}
+
+.clock { font-size: 80px; margin-top: 15%; }
+.date { font-size: 18px; }
+.secondaryClock { font-size: 50px; margin-top:40px; font-weight: 700; }
+.secondaryClock .seconds { display:none; }
+.secondaryDate { font-size: 15px; font-weight: 700; }
+.suffix { text-transform: lowercase; }
+.blink { color:#666; }
+
+
+.dueRed {
+    background-color:#B00000 !important;
+}
+.dueRed a { color:#FFF; }
+
+.red {
+    background-color:#CC3C29 !important;
+    color:#FFF !important;
+    font-weight: bold;
+}
+
+
+::-webkit-scrollbar {
+    height:3px;
+    width:5px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #E7E9EC;
+    -webkit-border-radius: 10px;
+    margin:10px 0;
+}
+
+::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:horizontal {
+    background-color: #666666;
+    -webkit-border-radius: 10px;
+}
+
+#pageNav { display:none; }
+#pageNav button {
+    position: fixed;
+    top:0;
+    bottom:0px;
+    color:#A2A2A2;
+    background-color:transparent;
+    border:0;
+    width: 60px;
+    font-size:50px;
+    cursor: pointer;
+    z-index:800;
+
+}
+#pageNav button:hover {
+    color:#929292;
+    background-color:#fff;
+    opacity: 0.1;
+}
+#pageNav #left { left: 0px; }
+#pageNav #right { right: 0px; }
+
+.page {
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0px;
+}
+.pageBody {
+    margin:50px 60px 20px;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+#page2 { left: 100%;}
+#page3 { left: 200%;}
+#page4 { left: 300%;}
+#page5 { left: 400%;}
+
+.boxedPage {
+    background-color:#fff;
+    -webkit-border-radius: 10px;
+    padding:10px;
+    overflow:auto;
+}
+.boxedPage h1 {
+    margin: 0;
+    padding: 0 0 5px 0;
+    font-size: 20px;
+    text-align: center;
+    color:#ccc;
+}
+.boxedPage a {
+    width: 160px;
+    text-align: center;
+    display:inline-block;
+    padding: 10px;
+}
+.boxedPage a img {
+    padding: 5px 20px;
+}
+.boxedPage a:hover {
+    background-color:#eee;
+    -webkit-border-radius: 10px;
+}

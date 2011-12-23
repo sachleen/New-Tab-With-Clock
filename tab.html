@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Tab</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="menu.css" type="text/css" media="screen">
+    <script type="text/javascript" src="jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js.js"></script>
+    <script type="text/javascript" src="jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+</head>
+<body>
+    <ul id="bookmarksBar"></ul>
+    <!-- This empty div keeps toodledo and appsMenu at the top of the page. -->
+    <div>&nbsp;</div>
+    
+    <div id="pageNav">
+        <button id="left">&#139;</button>
+        <button id="right">&#155;</button>
+    </div>
+    <div id="page1" class="page">
+        <div class="pageBody">
+        
+            <div id="clock1" class="clock"></div>
+            <div id="date1" class="date"></div>
+
+            <div id="otherClocks" style="display:none;">
+                <div id="clock2" class="secondaryClock"></div>
+                <div id="date2" class="secondaryDate"></div>
+                <div id="title2" class="clockTitle"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div id="appsPage" class="pageBody boxedPage"><h1>Apps</h1></div>
+    </div>
+    <script>
+        if(localStorage["themeEnableCSS"] == "on")
+        {
+            document.write('<style>');
+            document.write(localStorage["themeStyle"]);
+            document.write('</style>');
+        }
+
+        if(localStorage["themeEnableJS"] == "on")
+        {
+            eval(localStorage['themeJS'])
+        }
+
+        // Custom BG
+        if(localStorage['themeEnableWallpaper'] == "on")
+        {
+            var xhr = new XMLHttpRequest();
+            try {
+                var bgUrl = chrome.extension.getURL('wallpaper');
+                xhr.open('GET', bgUrl, false);
+                xhr.send(null);
+                document.body.style.background = 'url('+bgUrl+') top center'
+            } catch (err) {
+                console.log(err)
+            }
+        }
+
+
+        function gPlusNotifications()
+        {
+            document.write('<span id="gPlusNotifications"></span>');
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState != 4)
+                    return;
+
+                if (xhr.status == 200 && xhr.responseText) {
+                    var text = xhr.responseText;
+                    var firstComma = text.indexOf(',', 5);
+                    var secondComma = text.indexOf(',', firstComma +1);
+                    var num = text.substring(firstComma + 1, secondComma);
+
+
+                if(num > 0)
+                {
+                    $("#gPlusNotifications").attr('class', 'red');
+                    $("#gPlusNotifications").click(function(){window.location='https://plus.google.com/u/0/notifications/all'});
+                }
+                else
+                {
+                    $("#gPlusNotifications").attr('class', '');
+                    $("#gPlusNotifications").click(function(){window.location='https://plus.google.com/'});
+                }
+                $("#gPlusNotifications").html(num);
+
+                $("#gPlusNotifications").css("cursor","pointer");
+
+
+                    return;
+                }
+
+                onFinished(null);
+            }
+
+            xhr.open('get','https://plus.google.com/u/0/_/notifications/getunreadcount?inWidget=true&rt=j',true);
+            xhr.send();
+        }
+
+    </script>
+</body>
+</html>
